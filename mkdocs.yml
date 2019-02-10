@@ -1,5 +1,7 @@
 # Site information
 site_name: ヘンゼルのノート
+site_description: 主にプログラミング関連のメモ用
+site_author: ヘンゼルの記憶
 
 # Copyright
 copyright: 'Copyright &copy; 2019 ヘンゼルの記憶'
