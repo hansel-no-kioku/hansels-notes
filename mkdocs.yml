@@ -2,6 +2,7 @@
 site_name: ヘンゼルのノート
 site_description: 主にプログラミング関連のメモ用
 site_author: ヘンゼルの記憶
+repo_url: https://github.com/hansel-no-kioku/hansels-notes
 
 # Copyright
 copyright: 'Copyright &copy; 2019 ヘンゼルの記憶'
