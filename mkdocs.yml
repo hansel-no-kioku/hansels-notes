@@ -10,6 +10,9 @@ copyright: 'Copyright &copy; 2019 ヘンゼルの記憶'
 # Navigation
 nav:
   - Home: index.md
+  - PureScript:
+    - 'ヒント':
+      - 'Stateモナド': purescript/tips/state-monad.md
   - MkDocs:
     - 'Markdown チートシート': mkdocs/markdown.md
     - 'MkDocs+': mkdocs/mkdocsplus.md
