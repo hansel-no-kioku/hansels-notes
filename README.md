@@ -12,6 +12,7 @@ https://notes.han-sel.com
 
 * [MkDocs](https://www.mkdocs.org/)
 * [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
+* [mkdocs-git-revision-date-localized-plugin](https://github.com/timvink/mkdocs-git-revision-date-localized-plugin)
 
 ## 外部ライブラリ
 

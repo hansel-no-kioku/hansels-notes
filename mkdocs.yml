@@ -25,6 +25,12 @@ theme:
     icon: library_books
   favicon: 'images/favicon.png'
 
+plugins:
+  - search
+  - git-revision-date-localized:
+      type: date
+      locale: en
+
 extra:
   search:
     language: 'en, jp'
