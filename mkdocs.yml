@@ -33,7 +33,7 @@ plugins:
 
 extra:
   search:
-    language: 'en, jp'
+    language: 'en, ja'
   social:
     - type: 'github'
       link: 'https://github.com/hansel-no-kioku'
