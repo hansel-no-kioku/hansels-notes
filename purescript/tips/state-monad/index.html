@@ -539,17 +539,17 @@
                 
                 
                 <h1 id="state">Stateモナド</h1>
-<p>Effect や Maybe はなんとなく判るけど Stateモナドいまいち判らない、とか、モナド変換子さっぱり判らない、とか言っていた2017年の自分のために書いてみました。  </p>
-<p>まずは Stateモナドの話から。</p>
+<p><code>Effect</code> や <code>Maybe</code> はなんとなく判るけど<code>State</code>モナドいまいち判らない、とか、モナド変換子さっぱり判らない、とか言っていた2017年の自分のために書いてみました。  </p>
+<p>まずは<code>State</code>モナドの話から。</p>
 <h2 id="_1">いきなり結論</h2>
-<p>Stateモナドに<strong>「状態」</strong>は入ってないです。<br />
+<p><code>State</code> モナドに<strong>「状態」</strong>は入ってないです。<br />
 中身はただの<strong>「関数」</strong>です。<br />
 副作用なしで状態を遷移させちゃうよ<strong>モナドの魔法</strong>で! とか勘違いですよー。</p>
 <p>そして怖がらずに実装読みましょう。<br />
 そんなに難しくないです。</p>
 <p>…と、だいたいこれで全部ですが、昔の自分がこれで判るかどうか不安なので長々と書いてみます。</p>
 <h2 id="_2">ただ遷移するだけ</h2>
-<p>Int 型の状態を変更したり上書きする関数を複数用意してつなげてみます。</p>
+<p><code>Int</code>型の状態を変更したり上書きする関数を複数用意してつなげてみます。</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
