@@ -13,6 +13,7 @@ nav:
   - PureScript:
     - 'ヒント':
       - 'Stateモナド': purescript/tips/state-monad.md
+      - 'StateTモナド': purescript/tips/statet-monad.md
   - MkDocs:
     - 'Markdown チートシート': mkdocs/markdown.md
     - 'MkDocs+': mkdocs/mkdocsplus.md
