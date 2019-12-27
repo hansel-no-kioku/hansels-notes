@@ -2,7 +2,7 @@
 
 [Stateモナド](/purescript/tips/state-monad)の続きです。
 
-## 1. コンソールに出力したい…けど
+## コンソールに出力したい…けど
 
 よく考えると `doSomething :: forall a. Show a => a -> Unit` に渡したところで何一つ面白いことがありません。  
 副作用がない PureScript において `Unit` を返す関数は結局なにもしてくれないのです。
@@ -35,7 +35,7 @@ transit = do
 
 つまり `_ <-` で捨てたりせずなんとかして最後まで受け渡す必要があります。
 
-## 2. まずは力技でなんとかする
+## まずは力技でなんとかする
 
 do記法はもともとただの糖衣構文であり脱糖した後は `bind` で結合したただのクロージャになっています。  
 つまり `a <-` で一度名前に束縛した値は以降どこでも参照できるのです。
@@ -69,7 +69,7 @@ runState (State m) = m  -- 初期状態を渡して最後の状態と出力を�
 
 [実際に試す](https://try.purescript.han-sel.com/?gist=99ab2f2a08476d0215ab27eff9f7763e)
 
-## 3. さらに力技でなんとかする
+## さらに力技でなんとかする
 
 しかしクロージャじゃないとダメというのも不便なときがありそうです。  
 ではいっそ状態を `Int` から `Effect Int` にしてはどうでしょう?
@@ -91,7 +91,7 @@ transit = do
 
 [実際に試す](https://try.purescript.han-sel.com/?gist=2727352a2557e7a0594e862034fa5eaa)
 
-## 4. かっこいい方法を考える
+## かっこいい方法を考える
 
 ここまで来たらいっそ `Int -> Effect (Tuple a Int)` を繋げるようにしたらどうでしょう?
 
@@ -128,7 +128,7 @@ transit   = modify (_ + 1)          -- 状態を +1 する
 
 [実際に試す](https://try.purescript.han-sel.com/?gist=d376536b5dd856c9be9cc62dd1fd023a)
 
-## 5. Effect 以外でも使えるようにする
+## Effect 以外でも使えるようにする
 
 4.で作成した `StateT` は別に `Effect` じゃなくても `pure` や `bind` があれば使えそうです。  
 つまり `Monad` ならなんでもよさそうです。
@@ -159,7 +159,7 @@ transit   = modify (_ + 1)          -- 状態を +1 する
 
 [実際に試す](https://try.purescript.han-sel.com/?gist=3e6b461e6c3caacd246fcdfeda837aad)
 
-## 6. StateT も Monad のインスタンスにする
+## StateT も Monad のインスタンスにする
 
 後は[前回](/purescript/tips/state-monad)と同じです。
 
@@ -195,7 +195,7 @@ execStateT (StateT m) s = snd <$> m s
 
 [実際に試す](https://try.purescript.han-sel.com/?gist=ed367e433871efe11c13b4b85159468d)
 
-## 7. まとめ
+## まとめ
 
 ある型コンストラクタが別の型コンストラクタを引数になっていて、両方とも Monad のインスタンスで、さらに相互に変換する仕組みがあれば、それがモナド変換子です。
 
