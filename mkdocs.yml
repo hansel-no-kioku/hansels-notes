@@ -10,6 +10,12 @@ copyright: 'Copyright &copy; 2019 ヘンゼルの記憶'
 # Navigation
 nav:
   - Home: index.md
+  - phina.js:
+    - 'ヒント':
+      - 'phina.js のイベントの仕組み': phinajs/tips/how-to-use-event.md
+      - 'phina.js のイベント一覧': phinajs/tips/event-list.md
+      - 'phina.js でフレームレート(fps)やメモリ使用量を表示する': phinajs/tips/stats.md
+      - 'phina.js の Shape での origin による座標計算は padding を含む': phinajs/tips/coordinates-of-shapes.md
   - PureScript:
     - 'ヒント':
       - 'Stateモナド': purescript/tips/state-monad.md
