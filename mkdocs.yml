@@ -35,23 +35,27 @@ theme:
   palette:
     primary: 'Deep Orange'
     accent: 'Deep Orange'
-  logo:
-    icon: library_books
+  icon:
+    logo: material/text-box-multiple
+    repo: fontawesome/brands/github-alt
   favicon: 'images/favicon.png'
+  features:
+    - search.highlight
 
 plugins:
-  - search
+  - search:
+      lang:
+        - en
+        - ja
   - git-revision-date-localized:
       type: date
       locale: en
 
 extra:
-  search:
-    language: 'en, ja'
   social:
-    - type: 'github'
+    - icon: 'fontawesome/brands/github'
       link: 'https://github.com/hansel-no-kioku'
-    - type: 'twitter'
+    - icon: 'fontawesome/brands/twitter'
       link: 'https://twitter.com/hansel_no_kioku'
 
 extra_css:
