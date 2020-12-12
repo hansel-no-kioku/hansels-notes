@@ -470,13 +470,6 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    さらに力技でなんとかする
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
     かっこいい方法を考える
   </a>
   
@@ -497,7 +490,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     まとめ
   </a>
   
@@ -620,13 +613,6 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    さらに力技でなんとかする
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
     かっこいい方法を考える
   </a>
   
@@ -647,7 +633,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     まとめ
   </a>
   
@@ -741,34 +727,9 @@
 </code></pre></div>
 </td></tr></table>
 <p><a href="https://try.purescript.han-sel.com/?gist=99ab2f2a08476d0215ab27eff9f7763e">実際に試す</a></p>
-<h2 id="_3">さらに力技でなんとかする</h2>
+<h2 id="_3">かっこいい方法を考える</h2>
 <p>しかしクロージャじゃないとダメというのも不便なときがありそうです。<br />
-ではいっそ状態を <code>Int</code> から <code>Effect Int</code> にしてはどうでしょう?</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nf">transit</span> <span class="ow">::</span> <span class="kt">State</span> <span class="p">(</span><span class="kt">Effect</span> <span class="kt">Int</span><span class="p">)</span> <span class="kt">Unit</span>
-<span class="nf">transit</span> <span class="ow">=</span> <span class="kr">do</span>
-  <span class="n">modify</span>    <span class="o">$</span> <span class="n">map</span> <span class="p">(</span><span class="kr">_</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>    <span class="c1">-- Effect の中で状態を +1 する</span>
-  <span class="n">b</span> <span class="ow">&lt;-</span> <span class="n">gets</span> <span class="o">$</span> <span class="n">map</span> <span class="n">even</span>       <span class="c1">-- Effect の中で状態が(以下省略)</span>
-  <span class="kr">_</span> <span class="ow">&lt;-</span> <span class="n">lift</span> <span class="o">$</span> <span class="n">logShow</span> <span class="o">=&lt;&lt;</span> <span class="n">b</span>  <span class="c1">-- Effect から結果を取り出して表示</span>
-  <span class="n">modify</span>    <span class="o">$</span> <span class="n">map</span> <span class="p">(</span><span class="kr">_</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>    <span class="c1">-- Effect の中で(以下省略)</span>
-  <span class="n">s</span> <span class="ow">&lt;-</span> <span class="n">get</span>
-  <span class="n">f</span> <span class="ow">&lt;-</span> <span class="n">lift</span> <span class="o">$</span> <span class="n">logShow</span> <span class="o">=&lt;&lt;</span> <span class="n">s</span>  <span class="c1">-- Effect から(以下省略)</span>
-  <span class="n">put</span>       <span class="o">$</span> <span class="n">pure</span> <span class="mi">3</span>         <span class="c1">-- 状態を Effect に包んで設定</span>
-  <span class="n">modify</span>    <span class="o">$</span> <span class="n">map</span> <span class="p">(</span><span class="kr">_</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span>    <span class="c1">-- (以下省略)</span>
-</code></pre></div>
-</td></tr></table>
-<p>もうなんだひどいことになっていますが、とにかくできそうです。</p>
-<p><a href="https://try.purescript.han-sel.com/?gist=2727352a2557e7a0594e862034fa5eaa">実際に試す</a></p>
-<h2 id="_4">かっこいい方法を考える</h2>
-<p>ここまで来たらいっそ <code>Int -&gt; Effect (Tuple a Int)</code> を繋げるようにしたらどうでしょう?</p>
+ではいっそ <code>Int -&gt; Effect (Tuple a Int)</code> を繋げるようにしたらどうでしょう?</p>
 <p>一旦モナドは忘れてまずはこんな感じで定義してみます。</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -907,7 +868,7 @@
 </code></pre></div>
 </td></tr></table>
 <p><a href="https://try.purescript.han-sel.com/?gist=ed367e433871efe11c13b4b85159468d">実際に試す</a></p>
-<h2 id="_5">まとめ</h2>
+<h2 id="_4">まとめ</h2>
 <p>ある型コンストラクタが別の型コンストラクタを引数になっていて、両方とも Monad のインスタンスで、さらに相互に変換する仕組みがあれば、それがモナド変換子です。</p>
 <p>判ってしまえば難しいことは何もないのですが…初めはいくら説明されてもなかなか脳が受け付けません。<br />
 いろいろ足掻いているうちにある日突然脳が、これか! と納得するのです。</p>
@@ -920,7 +881,7 @@
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 27, 2019</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 12, 2020</span>
     
   </small>
 </div>
