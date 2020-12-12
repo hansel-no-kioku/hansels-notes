@@ -42,7 +42,6 @@ do記法はもともとただの糖衣構文であり脱糖した後は `bind` �
 
 これを利用して作用を捨てずに拾って返すようにしてみましょう。
 
-
 ```haskell
 transit :: State Int (Effect Unit)
 transit = do
@@ -69,31 +68,10 @@ runState (State m) = m  -- 初期状態を渡して最後の状態と出力を�
 
 [実際に試す](https://try.purescript.han-sel.com/?gist=99ab2f2a08476d0215ab27eff9f7763e)
 
-## さらに力技でなんとかする
-
-しかしクロージャじゃないとダメというのも不便なときがありそうです。  
-ではいっそ状態を `Int` から `Effect Int` にしてはどうでしょう?
-
-```haskell
-transit :: State (Effect Int) Unit
-transit = do
-  modify    $ map (_ + 1)    -- Effect の中で状態を +1 する
-  b <- gets $ map even       -- Effect の中で状態が(以下省略)
-  _ <- lift $ logShow =<< b  -- Effect から結果を取り出して表示
-  modify    $ map (_ + 2)    -- Effect の中で(以下省略)
-  s <- get
-  f <- lift $ logShow =<< s  -- Effect から(以下省略)
-  put       $ pure 3         -- 状態を Effect に包んで設定
-  modify    $ map (_ + 4)    -- (以下省略)
-```
-
-もうなんだひどいことになっていますが、とにかくできそうです。
-
-[実際に試す](https://try.purescript.han-sel.com/?gist=2727352a2557e7a0594e862034fa5eaa)
-
 ## かっこいい方法を考える
 
-ここまで来たらいっそ `Int -> Effect (Tuple a Int)` を繋げるようにしたらどうでしょう?
+しかしクロージャじゃないとダメというのも不便なときがありそうです。  
+ではいっそ `Int -> Effect (Tuple a Int)` を繋げるようにしたらどうでしょう?
 
 一旦モナドは忘れてまずはこんな感じで定義してみます。
 
