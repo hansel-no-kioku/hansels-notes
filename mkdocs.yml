@@ -7,6 +7,9 @@ repo_url: https://github.com/hansel-no-kioku/hansels-notes
 # Copyright
 copyright: 'Copyright &copy; 2019 ヘンゼルの記憶'
 
+# Google Analytics
+google_analytics: ['G-HF18DX69BQ', 'notes.han-sel.com']
+
 # Navigation
 nav:
   - Home: index.md
