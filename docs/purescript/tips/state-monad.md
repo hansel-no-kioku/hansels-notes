@@ -32,7 +32,7 @@ transit
 
 簡単です。
 
-[こちら](https://try.purescript.han-sel.com/?gist=ffb9f03650cd58cd0e70f2fd69134e36)で実際に試すことができます。
+[こちら](https://try.purescript.org/?gist=ffb9f03650cd58cd0e70f2fd69134e36)で実際に試すことができます。
 
 ## 途中の状態になにかしたい
 
@@ -41,7 +41,7 @@ transit
 
 でも先程の一連の関数たちの途中に `even` や `doSomething` を割り込ませると、状態を次の関数に引き継げなくなりますし、そもそも型が合わなくなってコンパイルも通りません。
 
-[実際に試す](https://try.purescript.han-sel.com/?gist=7388980e85b9da492db4d06d050fb9fc)
+[実際に試す](https://try.purescript.org/?gist=7388980e85b9da492db4d06d050fb9fc)
 
 では、なにかした結果と状態の両方を引き継げるように関数を改良してみましょう。  
 例えばそれぞれの関数の型を `Int -> Int` から `Tuple a Int -> Tuple b Int` に変えてみます。  
@@ -60,7 +60,7 @@ transit
   >>> (\(Tuple _ s) -> Tuple unit            (s + 4))  -- (以下略)
 ```
 
-[実際に試す](https://try.purescript.han-sel.com/?gist=9a8c0100f5dfbd388ce897e36b5eb1e2)
+[実際に試す](https://try.purescript.org/?gist=9a8c0100f5dfbd388ce897e36b5eb1e2)
 
 ## かっこよくする
 
@@ -96,7 +96,7 @@ transit   = modify (_ + 1)          -- 状態を +1 する
   >>- \_ -> modify (_ + 4)          -- (以下略)
 ```
 
-[実際に試す](https://try.purescript.han-sel.com/?gist=761235a95b0354e8ba81dc43f4164cfc)
+[実際に試す](https://try.purescript.org/?gist=761235a95b0354e8ba81dc43f4164cfc)
 
 ## do記法で書きたい
 
@@ -130,7 +130,7 @@ transit = do
   modify (_ + 4)
 ```
 
-[実際に試す](https://try.purescript.han-sel.com/?gist=47df53fcd108470a573f6f6ee740c696)
+[実際に試す](https://try.purescript.org/?gist=47df53fcd108470a573f6f6ee740c696)
 
 ## Monad のインスタンスにする
 
@@ -211,7 +211,7 @@ execState (State m) = m >>> snd           -- 初期状態を渡して最後の�
 
 完成です!
 
-[実際に試す](https://try.purescript.han-sel.com/?gist=30f166595eab37a41de5eaad9fb30975)
+[実際に試す](https://try.purescript.org/?gist=30f166595eab37a41de5eaad9fb30975)
 
 ## 次回予告
 

@@ -9,7 +9,7 @@
 
 面白いこと…例えば `logShow :: forall a. Show a => a -> Effect Unit` に渡してコンソールに出力とかしてみたいですね。
 
-というわけで[前回最後のコード](https://try.purescript.han-sel.com/?gist=30f166595eab37a41de5eaad9fb30975)の `doSomething` を `logShow` に置き換えてみます。
+というわけで[前回最後のコード](https://try.purescript.org/?gist=30f166595eab37a41de5eaad9fb30975)の `doSomething` を `logShow` に置き換えてみます。
 
 ```haskell
 transit :: State Int Unit
@@ -24,7 +24,7 @@ transit = do
   modify (_ + 4)
 ```
 
-[実際に試す](https://try.purescript.han-sel.com/?gist=c3327ea51d1541e21aee26f738398f30)
+[実際に試す](https://try.purescript.org/?gist=c3327ea51d1541e21aee26f738398f30)
 
 …何も出力されませんね。
 
@@ -66,7 +66,7 @@ transit = do
 runState (State m) = m  -- 初期状態を渡して最後の状態と出力を得る
 ```
 
-[実際に試す](https://try.purescript.han-sel.com/?gist=99ab2f2a08476d0215ab27eff9f7763e)
+[実際に試す](https://try.purescript.org/?gist=99ab2f2a08476d0215ab27eff9f7763e)
 
 ## かっこいい方法を考える
 
@@ -104,7 +104,7 @@ transit   = modify (_ + 1)          -- 状態を +1 する
   >>- \_ -> modify (_ + 4)          -- (以下略)
 ```
 
-[実際に試す](https://try.purescript.han-sel.com/?gist=d376536b5dd856c9be9cc62dd1fd023a)
+[実際に試す](https://try.purescript.org/?gist=d376536b5dd856c9be9cc62dd1fd023a)
 
 ## Effect 以外でも使えるようにする
 
@@ -135,7 +135,10 @@ transit   = modify (_ + 1)          -- 状態を +1 する
   >>- \_ -> modify (_ + 4)          -- (以下略)
 ```
 
-[実際に試す](https://try.purescript.han-sel.com/?gist=3e6b461e6c3caacd246fcdfeda837aad)
+[実際に試す](https://try.purescript.org/?gist=3e6b461e6c3caacd246fcdfeda837aad)
+
+!!! attention "注意"
+    [Try PureScript!](https://try.purescript.org/) では `Aff` 使うと `render =<< withConsole` が効かないので `F12` を押すなどしてコンソール出力を直接確認する必要があります。
 
 ## StateT も Monad のインスタンスにする
 
@@ -171,7 +174,10 @@ lift   m = StateT \s -> m >>= \x -> pure $ Tuple x s
 execStateT (StateT m) s = snd <$> m s
 ```
 
-[実際に試す](https://try.purescript.han-sel.com/?gist=ed367e433871efe11c13b4b85159468d)
+[実際に試す](https://try.purescript.org/?gist=ed367e433871efe11c13b4b85159468d)
+
+!!! attention "注意"
+    [Try PureScript!](https://try.purescript.org/) では `Aff` 使うと `render =<< withConsole` が効かないので `F12` を押すなどしてコンソール出力を直接確認する必要があります。
 
 ## まとめ
 
