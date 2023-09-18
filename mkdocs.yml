@@ -13,6 +13,8 @@ google_analytics: ['G-HF18DX69BQ', 'notes.han-sel.com']
 # Navigation
 nav:
   - Home: index.md
+  - Godot Engine:
+    - 'Godot Engine 自分メモ': godot-engine/my-memo.md
   - phina.js:
     - 'ヒント':
       - 'phina.js のイベントの仕組み': phinajs/tips/how-to-use-event.md
