@@ -1,6 +1,6 @@
 # StateTモナド
 
-[Stateモナド](/purescript/tips/state-monad)の続きです。
+[Stateモナド](state-monad.md)の続きです。
 
 ## コンソールに出力したい…けど
 
