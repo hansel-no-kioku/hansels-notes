@@ -21,6 +21,8 @@ nav:
       - 'phina.js のイベント一覧': phinajs/tips/event-list.md
       - 'phina.js でフレームレート(fps)やメモリ使用量を表示する': phinajs/tips/stats.md
       - 'phina.js の Shape での origin による座標計算は padding を含む': phinajs/tips/coordinates-of-shapes.md
+  - Phaser3:
+    - 'メモ': phaser3/tips.md
   - PureScript:
     - 'PureScript 0.12.0 で何が変わったか':
       - 'Effect編': purescript/changes-in-0.12.0/effect.md
