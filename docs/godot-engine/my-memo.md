@@ -26,3 +26,11 @@
 何度も出てくる場合 `var child_node := $ChildNode as MyClass` とするといいかも。  
 ここで `var child_node: MyClass = $ChildNode` としてはダメ。  
 たぶん `as` を使わないと `Node` の参照が代入されるイメージになるっぽい。
+
+## デバッグ
+
+### FPS 等の表示
+
+https://github.com/godot-extended-libraries/godot-debug-menu
+
+使い方は簡単
