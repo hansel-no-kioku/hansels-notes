@@ -31,6 +31,51 @@
 
 ### FPS 等の表示
 
+デバッグ実行時は Godot Editor 下にある `デバッガー` > `モニター` で確認できる
+
+#### AssetLib
+
 https://github.com/godot-extended-libraries/godot-debug-menu
 
 使い方は簡単
+
+## Node の使い分け
+
+### アクションゲーム等マップ上で動くキャラクターやエンティティ
+
+基本となる Node に画像や衝突範囲を表す子ノードを追加して構成する
+
+#### 基本
+
+| Node             | 特徴                                                                                    |
+| ---------------- | --------------------------------------------------------------------------------------- |
+| Area2D           | 物理演算は行わず衝突判定のみ行う。速度等のプロパティは持たずコードで位置を指示          |
+| CharacterBody2D  | 他の *Body2D と物理演算可能。移動はコードで指示                                         |
+| RigidBody2D      | 他の *Body2D と物理演算可能。コードからは力を加えるのみ                                 |
+| StaticBody2D     | 他の *Body2D と物理演算可能。動かない壁。コードで移動させた場合物理演算なしでワープする |
+| AnimatableBody2D | StaticBody2D の派生。コードで移動させた場合に経路上の他の物体と衝突する                 |
+
+https://docs.godotengine.org/en/stable/tutorials/physics/physics_introduction.html
+
+#### 画像
+
+AnimatedSprite2D や Sprite2D を基本に追加
+
+#### 衝突形状
+
+基本の子に CollisionShape2D を追加し、CollisionShape2D の shape プロパティに *Shape2D を設定する
+
+## Pixelゲーム
+
+基本拡大でぼやけさせないはず
+
+### 全体
+
+`プロジェクト` > `プロジェクト設定` > `表示` > `ウィンドウ` > `ストレッチ` > `モード` を `viewport` にする
+
+### Sprite
+
+scale を 1 より大きくする可能性がある場合以下が有効
+
+`インスペクター` > `Texture` > `Filter` を `Nearest` にする  
+ただし親ノードが `Nearest` であれば `inherit` でもよいはず
