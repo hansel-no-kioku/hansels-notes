@@ -2,8 +2,6 @@
 
 主にプログラミング関連のメモ用
 
-[![Build Status](https://travis-ci.org/hansel-no-kioku/hansels-notes.svg?branch=master)](https://travis-ci.org/hansel-no-kioku/hansels-notes)
-
 ## URL
 
 https://notes.han-sel.com
