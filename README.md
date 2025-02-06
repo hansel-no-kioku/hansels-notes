@@ -6,11 +6,20 @@
 
 https://notes.han-sel.com
 
-## 必要なツール
+## 手順
+
+```cmd
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+mkdocs serve
+```
+
+## 使用ツール
 
 * [MkDocs](https://www.mkdocs.org/)
 * [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
-* [mkdocs-git-revision-date-localized-plugin](https://github.com/timvink/mkdocs-git-revision-date-localized-plugin)
+* [mkdocs-git-revision-date-localized-plugin](https://gipipthub.com/timvink/mkdocs-git-revision-date-localized-plugin)
 
 ## 外部ライブラリ
 
